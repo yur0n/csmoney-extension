@@ -25,7 +25,7 @@
       "js": ["contentCsmoney.js"]
     },
     {
-      "matches": ["*://*.yuron.xyz/*", "*://localhost/*"],
+      "matches": ["https://csmoneyparser.com/*", "*://localhost/*"],
       "js": ["contentParser.js"]
     }
   ]
