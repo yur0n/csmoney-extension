@@ -7,7 +7,7 @@ chrome.action.onClicked.addListener(() => {
       chrome.tabs.update(tabs[0].id, { active: true });
     }
   });
-});
+}); 
 
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
 	await chrome.alarms.create('saveBuffSkins', {
