@@ -17,13 +17,18 @@ async function compareSkins({ maxPrice, minPrice, maxProfit, minProfit }) {
 		if (buffPrice >= (skin.price * minProfit) && buffPrice <= (skin.price * maxProfit)) {
 			const diff = (buffPrice / skin.price - 1) * 100
 			console.log(`Skin: ${skin.name} | Buff price: ${buffPrice} | CS.Money price: ${skin.price} | Profit: ${diff.toFixed(2)}%`);
+
+			const linkName = skin.name.replace('★',' ').replace('|','%7C').replace('(','&sort=price&order=asc&exterior=').replace(')',' ')
+			const link = `https://cs.money/market/buy/?utm_source=mediabuy&utm_medium=cts&utm_campaign=market&utm_content=link&search=${linkName}`
+			
 			parsedSkins.push({
 				name: skin.name,
 				buffPrice,
 				csPrice: skin.price,
 				profit: diff.toFixed(2),
 				id: skin.id,
-				photo: skin.photo
+				photo: skin.photo,
+				link
 			});
 		}
 	}
