@@ -33,7 +33,6 @@ chrome.runtime.onMessage.addListener((message) => {
 			if (!tabs.length) {
 				const tab = await chrome.tabs.create({ url: 'https://cs.money/', active: false });
 				tabId = tab.id;
-				console.log(tab)
 				await new Promise(resolve => setTimeout(resolve, 2000));
 			} else {
 				tabId = tabs[0].id;
