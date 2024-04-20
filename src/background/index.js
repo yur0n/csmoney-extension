@@ -42,9 +42,7 @@ chrome.runtime.onMessage.addListener((message) => {
 	}
 	if (message.parsedSkins) {
 		chrome.tabs.query({ url: ["https://csmoneyparser.com/*", "*://localhost/*"] }, (tabs) => {
-      for (const tab of tabs) {
-        chrome.tabs.sendMessage(tab.id, message);
-      }
+      chrome.tabs.sendMessage(tabs[0].id, message);
     });
 	}
 });
