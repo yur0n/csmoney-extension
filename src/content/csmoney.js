@@ -11,6 +11,7 @@ async function compareSkins({ maxPrice, minPrice, maxProfit, minProfit }) {
 	const skins = await getSkins(maxPrice, minPrice);
 	if (skins.error) return skins;
 	const buffSkins = (await chrome.storage.local.get('buffSkins')).buffSkins;
+	if (!buffSkins) return { error: 'Skins from Buff163 are not updated yet, try a bit later', status: 404 };
 	for (const skin of skins) {
 		const buffPrice = buffSkins[skin.name];
 		if (!buffPrice) continue;
