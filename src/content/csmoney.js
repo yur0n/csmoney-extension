@@ -19,7 +19,7 @@ async function compareSkins({ maxPrice, minPrice, maxProfit, minProfit }) {
 			const diff = (buffPrice / skin.price - 1) * 100
 			console.log(`Skin: ${skin.name} | Buff price: ${buffPrice} | CS.Money price: ${skin.price} | Profit: ${diff.toFixed(2)}%`);
 
-			const linkName = skin.name.replace('★',' ').replace('|','%7C').replace('(','&sort=price&order=asc&exterior=').replace(')',' ')
+			const linkName = skin.name.replace('★',' ').replace('™','').replace('|','%7C').replace('(','&sort=price&order=asc&exterior=').replace(')',' ')
 			const link = `https://cs.money/market/buy/?utm_source=mediabuy&utm_medium=cts&utm_campaign=market&utm_content=link&search=${linkName}`
 			
 			parsedSkins.push({
