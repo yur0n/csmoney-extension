@@ -4,6 +4,10 @@
   "version": "1.0",
   "permissions": ["storage", "alarms", "webNavigation", "tabs", "storage"],
   "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [{
+    "resources": ["user_item.txt"],
+    "matches": ["<all_urls>"]
+  }],
   "icons": {
     "16": "images/16.png",
     "128": "images/128.png"
@@ -25,7 +29,7 @@
       "js": ["contentCsmoney.js"]
     },
     {
-      "matches": ["https://csmoneyparser.com/*", "*://localhost/*"],
+      "matches": ["https://csmoneyparser.com/*", "*://localhost/*", "https://float.csmoneyparser.com/*"],
       "js": ["contentParser.js"]
     }
   ]

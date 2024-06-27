@@ -7,7 +7,7 @@ chrome.action.onClicked.addListener(() => {
       chrome.tabs.update(tabs[0].id, { active: true });
     }
   });
-}); 
+});
 
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
 	await chrome.alarms.create('saveBuffSkins', {
@@ -27,7 +27,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 
 
 chrome.runtime.onMessage.addListener((message) => {
-	if (message.parse) {
+	if (message.parse || message.parseFloat) {
 		chrome.tabs.query({ url: 'https://cs.money/*' }, async (tabs) => {
 			let tabId;
 			if (!tabs.length) {
@@ -42,6 +42,11 @@ chrome.runtime.onMessage.addListener((message) => {
 	}
 	if (message.parsedSkins) {
 		chrome.tabs.query({ url: ["https://csmoneyparser.com/*", "*://localhost/*"] }, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, message);
+    });
+	}
+	if (message.parsedSkinsFloat) {
+		chrome.tabs.query({ url: ["*://localhost/*", "https://float.csmoneyparser.com/*"] }, (tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, message);
     });
 	}

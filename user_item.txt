@@ -1,0 +1,115 @@
+AK-47 | Asiimov; 0.18; 0.15; 35
+AK-47 | Redline; 0.18; 0.15; 33
+AK-47 | Frontside Misty; 0.18; 0.15; 13.5
+AK-47 | Nightwish; 0.18; 0.15; 26
+AK-47 | Point Disarray; 0.18; 0.15; 9
+AK-47 | Head Shot; 0.18; 0.15; 16
+AWP | Duality; 0.18; 0.15; 4
+M4A4 | Temukau; 0.18; 0.15; 30
+M4A1-S | Printstream; 0.18; 0.15; 170
+USP-S | Printstream; 0.18; 0.15; 42
+Desert Eagle | Urban Rubble; 0.001; 0; 2.4
+Desert Eagle | Urban Rubble; 0.01; 0; 0.6
+Sawed-Off | Amber Fade; 0.001; 0; 3
+Sawed-Off | Amber Fade; 0.01; 0; 0.6
+P90 | Teardown; 0.001; 0; 3.5
+P90 | Teardown; 0.01; 0; 0.6
+USP-S | Night Ops; 0.001; 0; 3.3
+USP-S | Night Ops; 0.01; 0; 0.6
+SG 553 | Anodized Navy; 0.001; 0; 3.5
+Five-SeveN | Silver Quartz; 0.001; 0; 3.5
+Five-SeveN | Silver Quartz; 0.01; 0; 0.9
+SSG 08 | Acid Fade; 0.0003; 0; 9
+SSG 08 | Acid Fade; 0.001; 0; 3.5
+SSG 08 | Acid Fade; 0.003; 0; 1.1
+Sawed-Off | Full Stop; 0.001; 0; 3.5
+Sawed-Off | Full Stop; 0.01; 0; 0.6
+MP7 | Anodized Navy; 0.001; 0; 3
+MP7 | Anodized Navy; 0.01; 0; 0.6
+Glock-18 | Candy Apple; 0.001; 0; 4.5
+Glock-18 | Candy Apple; 0.01; 0; 1.3
+CZ75-Auto | Tuxedo; 0.001; 0; 4.5
+CZ75-Auto | Tuxedo; 0.01; 0; 1.2
+Desert Eagle | Meteorite; 0.001; 0; 3.9
+Desert Eagle | Meteorite; 0.01; 0; 1.2
+Galil AR | Tuxedo; 0.001; 0; 6
+Galil AR | Tuxedo; 0.01; 0; 1.6
+PP-Bizon | Brass; 0.001; 0; 6
+PP-Bizon | Brass; 0.01; 0; 2.9
+SG 553 | Damascus Steel; 0.001; 0; 6
+SG 553 | Damascus Steel; 0.01; 0; 1.5
+M4A1-S | VariCamo; 0.001; 0; 6
+M4A1-S | VariCamo; 0.01; 0; 1.5
+AK-47 | Emerald Pinstripe; 0.01; 0; 26
+AK-47 | Emerald Pinstripe; 0.01; 0; 12
+P2000 | Amber Fade; 0.001; 0; 25
+P2000 | Amber Fade; 0.01; 0; 12
+Driver Gloves | Imperial Plaid; 0.15; 0.18; 415
+Driver Gloves | Imperial Plaid; 0.18; 0.21; 376
+Sport Gloves | Scarlet Shamagh; 0.15; 0.18; 345
+Sport Gloves | Nocts; 0.15; 0.18; 434
+Sport Gloves | Omega; 0.15; 0.18; 640
+Sport Gloves | Omega; 0.18; 0.21; 495
+Sport Gloves | Slingshot; 0.15; 0.18; 1350
+Sport Gloves | Slingshot; 0.18; 0.21; 1025
+Specialist Gloves | Marble Fade; 0.15; 0.18; 456
+Specialist Gloves | Marble Fade; 0.18; 0.21; 340
+Specialist Gloves | Field Agent; 0.15; 0.18; 375
+Specialist Gloves | Field Agent; 0.18; 0.21; 310
+Specialist Gloves | Tiger Strike; 0.15; 0.18; 580
+Specialist Gloves | Tiger Strike; 0.18; 0.21; 495
+Specialist Gloves | Fade; 0.15; 0.18; 630
+Specialist Gloves | Fade; 0.18; 0.21; 470
+Specialist Gloves | Fade; 0.21; 0.24; 405
+Specialist Gloves | Crimson Web; 0.15; 0.18; 335
+Specialist Gloves | Crimson Web; 0.18; 0.21; 280
+Moto Gloves | Blood Pressure; 0.15; 0.18; 215
+Moto Gloves | Blood Pressure; 0.18; 0.21; 190
+Moto Gloves | Polygon; 0.15; 0.18; 213
+Driver Gloves | King Snake; 0.15; 0.18; 660
+Driver Gloves | King Snake; 0.18; 0.21; 460
+Driver Gloves | Snow Leopard; 0.15; 0.18; 535
+Driver Gloves | Snow Leopard; 0.18; 0.21; 470
+AK-47 | Asiimov; 0.15; 0.18; 35
+AK-47 | Asiimov; 0.07; 0.08; 73
+AK-47 | Redline; 0.15; 0.18; 33
+AK-47 | Redline; 0.18; 0.21; 25
+AK-47 | Redline; 0.1; 0.11; 110
+AWP | Asiimov; 0.18; 0.22; 145
+AWP | Asiimov; 0.9; 1 ; 140
+AWP | Asiimov; 0.95; 1 ; 210
+AWP | Asiimov; 0.99; 1 ; 350
+AWP | Containment Breach; 0.15; 0.18; 83
+M4A1-S | Printstream; 0.15; 0.18; 175
+M4A1-S | Hyper Beast; 0.15; 0.18; 25
+M4A4 | Asiimov; 0.18; 0.22; 235
+M4A4 | Eye of Horus; 0.15; 0.18; 235
+M4A4 | The Coalition; 0.15; 0.18; 34
+M4A4 | Temukau; 0.15; 0.18; 27
+Desert Eagle | Printstream; 0.15; 0.18; 37
+Desert Eagle | Ocean Drive; 0.15; 0.18; 21
+USP-S | Printstream; 0.15; 0.18; 40
+USP-S | Whiteout; 0.15; 0.18; 31
+USP-S | Whiteout; 0.07; 0.08; 80
+USP-S | Whiteout; 0.08; 0.09; 60
+MAC-10 | Candy Apple; 0; 0.01; 0.3
+MAC-10 | Candy Apple; 0; 0.001; 2
+MAG-7 | Metallic DDPAT; 0; 0.003; 0.6
+MAG-7 | Metallic DDPAT; 0; 0.001; 2
+P250 | Metallic DDPAT; 0; 0.003; 0.6
+P250 | Metallic DDPAT; 0; 0.001; 2
+SCAR-20 | Carbon Fiber; 0; 0.003; 0.6
+SCAR-20 | Carbon Fiber; 0; 0.001; 2
+MP7 | Motherboard; 0; 0.003; 0.4
+MP7 | Motherboard; 0; 0.001; 0.6
+M4A4 | Mainframe; 0; 0.001; 0.4
+UMP-45 | Carbon Fiber; 0; 0.003; 0.4
+UMP-45 | Carbon Fiber; 0; 0.001; 0.7
+G3SG1 | Green Apple; 0; 0.003; 0.4
+G3SG1 | Green Apple; 0; 0.001; 0.7
+Nova | Caged Steel; 0; 0.003; 0.4
+Nova | Caged Steel; 0; 0.001; 0.7
+MAC-10 | Silver; 0; 0.003; 0.4
+MAC-10 | Silver; 0; 0.001; 0.7
+Negev | Army Sheen; 0; 0.001; 0.4
+SG 553 | Army Sheen; 0; 0.001; 0.4
