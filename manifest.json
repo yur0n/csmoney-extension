@@ -29,7 +29,7 @@
       "js": ["contentCsmoney.js"]
     },
     {
-      "matches": ["https://csmoneyparser.com/*", "*://localhost/*", "https://float.csmoneyparser.com/*"],
+      "matches": ["https://csmoneyparser.com/*", "*://localhost/*", "https://float.csmoneyparser.com/*", "https://sticker.csmoneyparser.com/*"],
       "js": ["contentParser.js"]
     }
   ]

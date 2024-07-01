@@ -27,7 +27,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 
 
 chrome.runtime.onMessage.addListener((message) => {
-	if (message.parse || message.parseFloat) {
+	if (message.parse || message.parseFloat || message.parseSticker) {
 		chrome.tabs.query({ url: 'https://cs.money/*' }, async (tabs) => {
 			let tabId;
 			if (!tabs.length) {
@@ -47,6 +47,11 @@ chrome.runtime.onMessage.addListener((message) => {
 	}
 	if (message.parsedSkinsFloat) {
 		chrome.tabs.query({ url: ["*://localhost/*", "https://float.csmoneyparser.com/*"] }, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, message);
+    });
+	}
+	if (message.parsedSkinsSticker) {
+		chrome.tabs.query({ url: ["*://localhost/*", "https://sticker.csmoneyparser.com/*"] }, (tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, message);
     });
 	}
