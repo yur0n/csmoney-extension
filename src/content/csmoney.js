@@ -48,7 +48,7 @@ async function compareSkinsFloat(data) {
 	let userSkins = data.items;
 	const minProfit = data.minProfit;
 
-	const itemsURL = chrome.runtime.getURL('user_item.txt');
+	const itemsURL = chrome.runtime.getURL('user_float_items.txt');
 	if (itemsURL) {
 		const fileSkins = [];
 		await fetch(itemsURL)
