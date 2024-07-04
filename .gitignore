@@ -1,3 +1,4 @@
 node_modules
 user_item.txt
 dist
+.DS_Store

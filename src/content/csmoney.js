@@ -158,19 +158,20 @@ async function compareSkinsSticker(data) {
 	const parsedSkins = [];
 	const skins = await getSkinsSticker(overpay);
 	if (skins.error) return skins;
-
+	console.log(skins)
 	for (const userSkin of userSkins) {
 		for (const skin of skins) {
 			if (!skin.name.includes(userSkin.name)) continue;
+			console.log(skin)
 			const { defPrice, maxPrice } = userSkin;
 			if (!defPrice, !maxPrice ) continue;
+			console.log( ((defPrice + skin.totalStickersOverpayPrice - skin.price) / skin.price), minProfit)
 			if (skin.price < maxPrice && ((defPrice + skin.totalStickersOverpayPrice - skin.price) / skin.price) > minProfit) {
-
 				const profit = (((defPrice + skin.totalStickersOverpayPrice - skin.price) / skin.price) * 100).toFixed(2);
 				console.log(`Skin: ${skin.name} | CS.Money price: ${skin.price} | Def price: ${defPrice} | Profit: ${profit}%`);
 	
 				const linkName = skin.name.replace('★',' ').replace('™','').replace('|','%7C').replace('(','&sort=price&order=asc&exterior=').replace(')',' ')
-				const link = `https://cs.money/market/buy/?utm_source=mediabuy&utm_medium=cts&utm_campaign=market&utm_content=link&search=${linkName}&sort=price&order=asc&maxFloat=${maxFloat}&minFloat=${minFloat}`
+				const link = `https://cs.money/market/buy/?utm_source=mediabuy&utm_medium=cts&utm_campaign=market&utm_content=link&search=${linkName}`
 				
 				parsedSkins.push({
 					name: skin.name,
@@ -190,20 +191,10 @@ async function compareSkinsSticker(data) {
 }
 
 async function getSkinsSticker(overpay) {
-	overpay = 
-		{
-			defaultOverpay: 0,
-			katowice_overpay: 0.03,
-			howlingdown_overpay: 0.03,
-			katowiceholo_overpay: 0.01,
-			crown_overpay: 0.05,
-			HarpofWar_overpay: 0.03,
-			kingoffield_overpay: 0.02
-		}
 	try {
 		const skins = [];
-		
 		const url = `https://cs.money/1.0/market/sell-orders?hasStickers=true&limit=60&minPrice=10&order=desc&sort=insertDate`
+		
 		const response = await fetch(url);
 		if (response.ok) {
 				const data = await response.json()
@@ -211,6 +202,7 @@ async function getSkinsSticker(overpay) {
 					const stickers = [];
 					let totalStickersPrice = 0;
 					let totalStickersOverpayPrice = 0;
+					if (!item.stickers) return;
 					item.stickers.forEach(sticker => {
 						if (sticker === null) return;
 						const price = Math.round((sticker.wear ? 0 : sticker.pricing.default) * 100) / 100  // scratched = 0
@@ -219,12 +211,12 @@ async function getSkinsSticker(overpay) {
 						for (const stickerName of Object.keys(overpay)) {
 							if (sticker.name.includes(stickerName)) {
 								overpayPrice = price * overpay[stickerName];
+								break;
 							} else {
 								overpayPrice = price * overpay.defaultOverpay;
 							}
-							totalStickersOverpayPrice += overpayPrice;
-							break;
 						}
+						totalStickersOverpayPrice += overpayPrice;
 						
 						stickers.push({
 							name: sticker.name,

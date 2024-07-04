@@ -5,7 +5,7 @@
   "permissions": ["storage", "alarms", "webNavigation", "tabs", "storage"],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [{
-    "resources": ["user_item.txt"],
+    "resources": ["user_float_items.txt", "user_sticker_items.txt"],
     "matches": ["<all_urls>"]
   }],
   "icons": {
