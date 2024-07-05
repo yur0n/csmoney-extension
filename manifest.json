@@ -4,10 +4,6 @@
   "version": "1.0",
   "permissions": ["storage", "alarms", "webNavigation", "tabs", "storage"],
   "host_permissions": ["<all_urls>"],
-  "web_accessible_resources": [{
-    "resources": ["user_float_items.txt", "user_sticker_items.txt"],
-    "matches": ["<all_urls>"]
-  }],
   "icons": {
     "16": "images/16.png",
     "128": "images/128.png"

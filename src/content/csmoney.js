@@ -19,7 +19,7 @@ async function compareSkins({ maxPrice, minPrice, maxProfit, minProfit }) {
 	const skins = await getSkins({ maxPrice, minPrice });
 	if (skins.error) return skins;
 	const buffSkins = (await chrome.storage.local.get('buffSkins')).buffSkins;
-	if (!buffSkins) return { error: 'Skins from Buff163 are not updated yet, try a bit later', status: 404 };
+	if (!buffSkins) return { error: 'Skins from Buff163 are not updated yet, try again later', status: 404 };
 	for (const skin of skins) {
 		const buffPrice = buffSkins[skin.name];
 		if (!buffPrice) continue;
@@ -47,24 +47,8 @@ async function compareSkins({ maxPrice, minPrice, maxProfit, minProfit }) {
 async function compareSkinsFloat(data) {
 	let userSkins = data.items;
 	const minProfit = data.minProfit;
-
-	const itemsURL = chrome.runtime.getURL('user_float_items.txt');
-	if (itemsURL) {
-		const fileSkins = [];
-		await fetch(itemsURL)
-			.then(res => res.text())
-			.then(text => {
-				const lines = text.split('\n').trim();
-				lines.forEach(line => {
-					const [name, maxFloat, minFloat, maxPrice] = line.split(';').trim();
-					fileSkins.push({ name, maxFloat, minFloat, maxPrice });
-				});
-
-			})
-			.catch(e => console.log('file not added'));
-		userSkins = [...userSkins, ...fileSkins];
-	}
 	if (!userSkins.length) return { error: 'No skins provided', status: 404 };
+
 	const skins = await getSkins();
 	if (skins.error) return skins;
 
@@ -97,62 +81,11 @@ async function compareSkinsFloat(data) {
 	return parsedSkins;
 }
 
-async function getSkins(maxPrice, minPrice) {
-	try {
-		const skins = [];
-		let url;
-
-		if (!maxPrice || !minPrice) {
-			// url = 'https://cs.money/1.0/market/sell-orders?limit=60&maxFloat=0.36&name=AK-47%20Redline&order=desc&sort=insertDate'
-			url = `https://cs.money/1.0/market/sell-orders?limit=60&maxFloat=0.99999999&order=desc&sort=insertDate`
-		} else {
-			url = `https://cs.money/1.0/market/sell-orders?limit=60&maxPrice=${maxPrice}&minPrice=${minPrice}&order=desc&sort=insertDate&offset=0`
-		}
-
-		const response = await fetch(url);
-		if (response.ok) {
-				const data = await response.json()
-				data.items.forEach(item => {
-					skins.push({
-						name: item.asset.names.full,
-						price: item.pricing.computed,
-						id: item.asset.id,
-						photo: item.asset.images.screenshot || item.asset.images.steam,
-						float: item.asset.float
-					});
-				});
-			return skins;
-		} else {
-			console.log('Failed to fetch: ' + response.status)
-			return { error: 'Failed to fetch', status: response.status }
-		}
-	} catch (error) {
-		console.log(error)
-		return { error: error.message, status: 500 }
-	}
-}
-
 async function compareSkinsSticker(data) {
 	let userSkins = data.items;
 	const minProfit = data.minProfit;
 	const overpay = data.overpay;
 
-	const itemsURL = chrome.runtime.getURL('user_sticker_items.txt');
-	if (itemsURL) {
-		const fileSkins = [];
-		await fetch(itemsURL)
-			.then(res => res.text())
-			.then(text => {
-				const lines = text.split('\n').trim();
-				lines.forEach(line => {
-					const [name, defPrice, maxPrice] = line.split(';').trim();
-					fileSkins.push({ name, defPrice, maxPrice });
-				});
-
-			})
-			.catch(e => console.log('file not added'));
-		userSkins = [...userSkins, ...fileSkins];
-	}
 	if (!userSkins.length) return { error: 'No skins provided', status: 404 };
 
 	const parsedSkins = [];
@@ -188,6 +121,40 @@ async function compareSkinsSticker(data) {
 		}
 	}
 	return parsedSkins;
+}
+
+async function getSkins(maxPrice, minPrice) {
+	try {
+		const skins = [];
+		let url;
+
+		if (!maxPrice || !minPrice) {
+			url = `https://cs.money/1.0/market/sell-orders?limit=60&maxFloat=0.99999999&order=desc&sort=insertDate`
+		} else {
+			url = `https://cs.money/1.0/market/sell-orders?limit=60&maxPrice=${maxPrice}&minPrice=${minPrice}&order=desc&sort=insertDate&offset=0`
+		}
+
+		const response = await fetch(url);
+		if (response.ok) {
+				const data = await response.json()
+				data.items.forEach(item => {
+					skins.push({
+						name: item.asset.names.full,
+						price: item.pricing.computed,
+						id: item.asset.id,
+						photo: item.asset.images.screenshot || item.asset.images.steam,
+						float: item.asset.float
+					});
+				});
+			return skins;
+		} else {
+			console.log('Failed to fetch: ' + response.status)
+			return { error: 'Failed to fetch', status: response.status }
+		}
+	} catch (error) {
+		console.log(error)
+		return { error: error.message, status: 500 }
+	}
 }
 
 async function getSkinsSticker(overpay) {
